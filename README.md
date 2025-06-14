@@ -28,4 +28,4 @@ See the installation guide in the documentation for detailed setup instructions.
 
 ## License
 
-Copyright (c) 2024 Suneet Dungrani. All rights reserved.
+Copyright (c) 2025 Suneet Dungrani. All rights reserved.
