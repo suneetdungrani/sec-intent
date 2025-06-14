@@ -1,0 +1,24 @@
+{
+  "name": "security-intent-copilot",
+  "version": "1.0.0",
+  "description": "Security Intent Co-Pilot - LLM-driven security auditing tool",
+  "author": "Suneet Dungrani",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suneetdungrani/sec-intent"
+  },
+  "scripts": {
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "test": "cd vscode-extension && npm test && cd ../backend && python -m pytest",
+    "dev": "docker-compose up --build"
+  },
+  "keywords": [
+    "security",
+    "code-review",
+    "llm",
+    "vscode",
+    "intent-based-security"
+  ]
+}

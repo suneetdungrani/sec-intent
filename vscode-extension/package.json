@@ -1,0 +1,82 @@
+{
+  "name": "security-intent-copilot",
+  "displayName": "Security Intent Co-Pilot",
+  "description": "Validate code against security intentions using LLM",
+  "version": "1.0.0",
+  "author": "Suneet Dungrani",
+  "publisher": "suneetdungrani",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Linters", "Other"],
+  "keywords": ["security", "code-review", "intent", "llm"],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:csharp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "securityIntent.analyze",
+        "title": "Analyze Security Intent"
+      },
+      {
+        "command": "securityIntent.analyzeFile",
+        "title": "Analyze Security Intent for Entire File"
+      }
+    ],
+    "configuration": {
+      "title": "Security Intent Co-Pilot",
+      "properties": {
+        "securityIntent.backendUrl": {
+          "type": "string",
+          "default": "http://localhost:5000",
+          "description": "Backend server URL for security analysis"
+        },
+        "securityIntent.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenRouter API key (stored securely)"
+        },
+        "securityIntent.model": {
+          "type": "string",
+          "default": "anthropic/claude-3-sonnet",
+          "description": "LLM model to use for analysis"
+        },
+        "securityIntent.autoAnalyze": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically analyze on save"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.3.0"
+  }
+}
